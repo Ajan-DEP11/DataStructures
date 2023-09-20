@@ -1,3 +1,4 @@
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Demo7 {
@@ -5,8 +6,18 @@ public class Demo7 {
         String endpoint1 = "https://photoslibrary.googleapis.com:443/v1/albums/10";
         String endpoint2 = "http://people.googleapis.com:80/v2/me/connections";
 
-        String pattern= "http[s]?://[a-z]+[.]googleapis.com:[0-9]{1,5}/v\\d+/.+";
+        String pattern= "(?<protocol>http[s]?)://(?<host>[a-z]+[.]googleapis.com):(?<port>\\d{1,5})/v(?<version>\\d+)/(?<path>.+)";
         System.out.println(endpoint1.matches(pattern));
         System.out.println(endpoint2.matches(pattern));
+
+        Pattern compiledPattern = Pattern.compile(pattern);
+        Matcher matcher = compiledPattern.matcher(endpoint1);
+
+        matcher.find();
+        System.out.println("protocol:"+ matcher.group(1));
+        System.out.println("host:" + matcher.group(2));
+        System.out.println("api version:" + matcher.group(3));
+        System.out.println("version :"+matcher.group("version"));
+        System.out.println("path:" + matcher.group("path"));
     }
 }
