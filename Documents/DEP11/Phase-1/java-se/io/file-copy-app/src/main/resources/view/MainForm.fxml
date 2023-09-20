@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:id="root" prefHeight="525.0" prefWidth="747.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep11.MainFormController">
+   <children>
+      <Label layoutX="27.0" layoutY="26.0" prefHeight="40.0" prefWidth="283.0" text="CopyApp">
+         <font>
+            <Font name="Padauk Bold" size="19.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtSource" editable="false" layoutX="27.0" layoutY="100.0" onAction="#txtSourceOnAction" prefHeight="29.0" prefWidth="586.0" />
+      <Button fx:id="btnBrowseSource" layoutX="641.0" layoutY="103.0" mnemonicParsing="false" onAction="#btnBrowseSourceOnAction" text="Browse">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Label layoutX="27.0" layoutY="66.0" text="Select the source file:" />
+      <Label layoutX="30.0" layoutY="174.0" text="Select the target directory:" />
+      <TextField fx:id="txtTarget" editable="false" layoutX="27.0" layoutY="208.0" onAction="#txtTargetOnAction" prefHeight="29.0" prefWidth="597.0" />
+      <Button fx:id="btnTarget" layoutX="644.0" layoutY="211.0" mnemonicParsing="false" onAction="#btnTargetOnAction" text="Browse">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnCopy" layoutX="320.0" layoutY="301.0" mnemonicParsing="false" onAction="#btnCopyOnAction" prefHeight="29.0" prefWidth="80.0" text="Copy">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <ProgressBar fx:id="pbProgress" layoutX="30.0" layoutY="453.0" prefHeight="20.0" prefWidth="690.0" progress="0.0" />
+      <Label fx:id="lblCopyBytes" layoutX="37.0" layoutY="420.0" text="Copied 0/1250byte">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblProgress" layoutX="607.0" layoutY="427.0" text="Progress: 50%">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
